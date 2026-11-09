@@ -919,7 +919,7 @@ textarea:focus,input:focus{border-color:var(--blush);box-shadow:0 0 0 4px rgba(2
   const vibrate = ms => { try { if (navigator.vibrate) navigator.vibrate(ms); } catch(e){} };
 
   /* ---------------- 数据 ---------------- */
-  const KEY = "birthday-gift-v1";
+  const KEY = "birthday-gift-v2";
 
   const DEFAULT_LETTER =
 "今天想把一整年的喜欢，都装进这个小盒子里。\n\n" +
@@ -934,7 +934,7 @@ textarea:focus,input:focus{border-color:var(--blush);box-shadow:0 0 0 4px rgba(2
       to: "小雨宝宝",
       v: 2,
       from: "你的专属笨蛋",
-      birthday: ymd(today),
+      birthday: "2026-11-10",
       together: ymd(tg),
       letter: DEFAULT_LETTER,
       memories: [
@@ -948,6 +948,7 @@ textarea:focus,input:focus{border-color:var(--blush);box-shadow:0 0 0 4px rgba(2
         "吵架可以，但不许你一个人偷偷难过。",
         "想去的地方慢慢走，想吃的店一家家吃过去。"
       ],
+      daysLabel: "我们已经一起走过 74 天",
       theme: "rose",
       music: true
     };
@@ -1352,7 +1353,7 @@ textarea:focus,input:focus{border-color:var(--blush);box-shadow:0 0 0 4px rgba(2
 
     $("#finalName").textContent = state.to;
     $("#finalFrom").textContent = state.from;
-    $("#finalDays").textContent = togetherText();
+    $("#finalDays").textContent = state.daysLabel || togetherText();
 
     const bd = parseYmd(state.birthday);
     if(bd){
